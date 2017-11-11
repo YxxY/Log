@@ -1,4 +1,4 @@
-# Log
+# log-tracer
 lightweight logger for node.js heavily inspired by `log` and `rotating-file-stream`
 
 # Features
@@ -10,9 +10,9 @@ lightweight logger for node.js heavily inspired by `log` and `rotating-file-stre
 
 # Usage
 ## install
-`npm i Log --save`
+`npm i log-tracer --save`
 ## import
-var log = require('Log')()
+var log = require('log-tracer')()
 ## arguments
 - levelStr {String} `debug` _default_
 
@@ -24,7 +24,7 @@ Details with an `object` which have following attributes:
 - replaceConsole {Boolean} disable console output. `true` _default_
 ## Exapmle
 ```js
-var log = require('Log')();
+var log = require('log-tracer')();
 
 log.debug('debug message');
 log.info('info message');

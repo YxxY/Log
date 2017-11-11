@@ -1,12 +1,12 @@
 {
-  "name": "Log",
+  "name": "log-tracer",
   "version": "1.0.0",
   "description": "a lightweight and graceful logger for nodejs based on `log` and `rotating-file-stream`",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git@github.com:YxxY/Log.git"
   },
@@ -16,7 +16,7 @@
     "stream",
     "js"
   ],
-  "author": "YxxY",
+  "author": "yxxy",
   "license": "MIT",
   "dependencies": {
     "rotating-file-stream": "^1.3.2"
