@@ -11,9 +11,13 @@
     "url": "git@github.com:YxxY/Log.git"
   },
   "keywords": [
-    "logger",
+    "log",
+    "tracer",
     "trace",
+    "log",
     "stream",
+    "rotation",
+    "file",
     "js"
   ],
   "author": "yxxy",
