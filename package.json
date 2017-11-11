@@ -1,6 +1,6 @@
 {
   "name": "log-tracer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a lightweight and graceful logger for nodejs based on `log` and `rotating-file-stream`",
   "main": "index.js",
   "scripts": {
