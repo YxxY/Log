@@ -1,5 +1,5 @@
 # Log
-a lightweight logger for node.js based on `log` and `rotating-file-stream`
+lightweight logger for node.js heavily inspired by `log` and `rotating-file-stream`
 
 # Features
 - default file output
