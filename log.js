@@ -14,11 +14,11 @@ exports = module.exports = Log
 
 /**
  * Initialize a `Loggeer` with the given log `level` defaulting
- * to __DEBUG__, `stream` defaulting to _stdout_ and stdout defaulting to false
+ * to __DEBUG__, `stream` defaulting to _stdout_ and replaceConsole defaulting to true
  *
  * @param {Number} level
  * @param {Object} stream
- * @param {Boolean} stdout
+ * @param {Boolean} replaceConsole
  * @api public
  */
 

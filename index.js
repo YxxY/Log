@@ -4,12 +4,24 @@ var Log = require('./log'),
     fs = require('fs')
 
 module.exports = function (config) {
-    var options = parseConfig(config)
-    var opt = {}
+    var options = parseConfig(config),
+        opt = {};
     ['size', 'path', 'maxFiles', 'history'].forEach(function(x){
         if(options[x])
             opt[x] = options[x]
     })
+    if(options.reader){
+        var fp = path.join(options.path, options.logName)
+        try{
+            var f = fs.statSync(fp)
+            if(f.isFile())
+                return new Log(options.level, fs.createReadStream(fp))
+            else
+                throw new TypeError(`${fp} is not a file`)
+        }catch(err){
+            throw err
+        }
+    }
 
     return new Log(options.level, rfs(generator, opt), options.replaceConsole)
 
@@ -27,7 +39,7 @@ module.exports = function (config) {
 }
 
 function pad(num) {
-    return (num > 9 ? "" : "0") + num;
+    return (num > 9 ? "" : "0") + num
 }
 
 function parseConfig(config) {
@@ -37,6 +49,7 @@ function parseConfig(config) {
         replaceConsole: true,
         size: '20M',
         maxFiles: 10,
+        reader: false,
     }
     config = config || 'debug'
     if(typeof config === 'string')

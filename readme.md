@@ -12,23 +12,45 @@ lightweight logger for node.js heavily inspired by `log` and `rotating-file-stre
 ## install
 `npm i log-tracer --save`
 ## import
+```js
+//default options, 'debug' level
 var log = require('log-tracer')()
+
+//levelStr option. 
+var log = require('log-tracer')('info') //statement level under 'info' will be ignored.
+log.info('info message')   //record normally
+log.debug('debug message') //would not be recorded
+
+//details with an object options
+var log = require('log-tracer')({
+    levelStr: 'error',
+    replaceConsole: 'false'
+})
+```
 ## arguments
 - levelStr {String} `debug` _default_
 
 Details with an `object` which have following attributes:
-- logName {String} `trace.log` _default_
-- path {String} parent dir of the logfiles, better to be an absolue path. `./trace` _default_
-- size {String} rotation size for the file. '20M' _default_
-- maxFiles {Number} max number of files to be stored. `10` _default_
-- replaceConsole {Boolean} disable console output. `true` _default_
+- logName {String} _default_ `trace.log` 
+- path {String} parent dir of the logfiles, recommend an absolue path. _default_ `./trace` 
+- size {String} rotation size for the file. _default_ `20M` 
+- maxFiles {Number} max number of files to be stored. _default_ `10` 
+- history {String} history file name for rotation. _default_ `${logName}.txt` 
+- replaceConsole {Boolean} disable console output. _default_ `true` 
+- reader {Boolean} read log from file. _default_ `false` 
 ## Exapmle
 ```js
+//logger
 var log = require('log-tracer')();
-
 log.debug('debug message');
 log.info('info message');
 log.error('error message');
+
+//reader
+var log = require('log-tracer')({reader: true});
+log.on('line', (data)=>{
+    console.log(data)
+})
 ```
 ## log levels
 - 0 EMERGENCY system is unusable
