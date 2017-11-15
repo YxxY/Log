@@ -14,7 +14,7 @@
     "log",
     "tracer",
     "trace",
-    "log",
+    "logger",
     "stream",
     "rotation",
     "file",

@@ -23,7 +23,7 @@ module.exports = function (config) {
         }
     }
 
-    return new Log(options.level, rfs(generator, opt), options.replaceConsole)
+    return new Log(options.level, rfs(generator, opt), options.enableConsole)
 
     function generator(time, index) {
         if (!time)
@@ -46,7 +46,7 @@ function parseConfig(config) {
     var options = {
         logName: 'trace.log',
         path: './traces',
-        replaceConsole: true,
+        enableConsole: false,
         size: '20M',
         maxFiles: 10,
         reader: false,

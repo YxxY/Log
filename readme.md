@@ -24,7 +24,7 @@ log.debug('debug message') //would not be recorded
 //details with an object options
 var log = require('log-tracer')({
     levelStr: 'error',
-    replaceConsole: 'false'
+    enableConsole: true
 })
 ```
 ## arguments
@@ -32,12 +32,12 @@ var log = require('log-tracer')({
 
 Details with an `object` which have following attributes:
 - logName {String} _default_ `trace.log` 
-- path {String} parent dir of the logfiles, recommend an absolue path. _default_ `./trace` 
+- path {String} parent dir of the logfiles, recommend an absolue path. _default_  `./trace` 
 - size {String} rotation size for the file. _default_ `20M` 
 - maxFiles {Number} max number of files to be stored. _default_ `10` 
-- history {String} history file name for rotation. _default_ `${logName}.txt` 
-- replaceConsole {Boolean} disable console output. _default_ `true` 
-- reader {Boolean} read log from file. _default_ `false` 
+- history {String} history file name for rotation. _default_  `${logName}.txt` 
+- enableConsole {Boolean} enable console output. _default_  `false` 
+- reader {Boolean} read log from file. _default_  `false` 
 ## Exapmle
 ```js
 //logger
