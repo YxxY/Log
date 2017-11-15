@@ -14,20 +14,20 @@ exports = module.exports = Log
 
 /**
  * Initialize a `Loggeer` with the given log `level` defaulting
- * to __DEBUG__, `stream` defaulting to _stdout_ and replaceConsole defaulting to true
+ * to __DEBUG__, `stream` defaulting to _stdout_ and enableConsole defaulting to true
  *
  * @param {Number} level
  * @param {Object} stream
- * @param {Boolean} replaceConsole
+ * @param {Boolean} enableConsole
  * @api public
  */
 
-function Log(level, stream, replaceConsole) {
+function Log(level, stream, enableConsole) {
     if ('string' == typeof level)
         level = Log[level.toUpperCase()]
     this.level = level || Log.DEBUG
     this.stream = stream || process.stdout
-    this.replaceConsole = replaceConsole
+    this.enableConsole = enableConsole
     if (this.stream.readable)
         this.read()
 };
@@ -113,7 +113,7 @@ Log.prototype.log = function (levelStr, args) {
 
         this.stream.write(now.toJSON().replace(/Z/, '') +
             ' [' + levelStr + ']' + padding + msg + '\n')
-        if (!this.replaceConsole)
+        if (this.enableConsole)
             console.log(`[${levelStr}]: ${msg}`)
     }
 };
