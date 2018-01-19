@@ -15,7 +15,7 @@ module.exports = function (config) {
         try{
             var f = fs.statSync(fp)
             if(f.isFile())
-                return new Log(options.level, fs.createReadStream(fp))
+                return new Log(options.levelStr, fs.createReadStream(fp))
             else
                 throw new TypeError(`${fp} is not a file`)
         }catch(err){
@@ -23,7 +23,7 @@ module.exports = function (config) {
         }
     }
 
-    return new Log(options.level, rfs(generator, opt), options.enableConsole)
+    return new Log(options.levelStr, rfs(generator, opt), options.enableConsole)
 
     function generator(time, index) {
         if (!time)
@@ -51,7 +51,6 @@ function parseConfig(config) {
         maxFiles: 10,
         reader: false,
     }
-    config = config || 'debug'
     if(typeof config === 'string')
         options.levelStr = config
     else if (typeof config === 'object' && config.toString() === '[object Object]')

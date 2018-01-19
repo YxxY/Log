@@ -14,7 +14,7 @@ exports = module.exports = Log
 
 /**
  * Initialize a `Loggeer` with the given log `level` defaulting
- * to __DEBUG__, `stream` defaulting to _stdout_ and enableConsole defaulting to true
+ * to __DEBUG__, `stream` defaulting to _stdout_ and enableConsole defaulting to false
  *
  * @param {Number} level
  * @param {Object} stream
@@ -27,7 +27,7 @@ function Log(level, stream, enableConsole) {
         level = Log[level.toUpperCase()]
     this.level = level || Log.DEBUG
     this.stream = stream || process.stdout
-    this.enableConsole = enableConsole
+    this.enableConsole = enableConsole || false
     if (this.stream.readable)
         this.read()
 };
